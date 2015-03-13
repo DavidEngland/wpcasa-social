@@ -34,8 +34,8 @@ function custom_social_links_shortcode( $atts ) {
 	// Remove empty elements
 	$social_icons = array_filter( $social_icons );
 	
-  $output = '<div class="' . $wrap . '" itemscope itemtype="http://schema.org/Organization">';
-  $output .= '<link itemprop="url"'. get_site_url() .'" >'.PHP_EOL;
+  $output = '<div class="' . $wrap . '" itemscope itemtype="http://schema.org/Organization">'.PHP_EOL;
+  $output .= '<link itemprop="url" href="'. get_site_url() .'" >'.PHP_EOL;
 	
 	if( ! empty( $social_icons ) ) {					
 		$i = 1;														
