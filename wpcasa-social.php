@@ -34,7 +34,8 @@ function custom_social_links_shortcode( $atts ) {
 	// Remove empty elements
 	$social_icons = array_filter( $social_icons );
 	
-  $output = '<div class="' . $wrap . '">';
+  $output = '<div class="' . $wrap . '" itemscope itemtype="http://schema.org/Organization">';
+  $output .= '<link itemprop="url"'. get_site_url() .'" >'.PHP_EOL;
 	
 	if( ! empty( $social_icons ) ) {					
 		$i = 1;														
@@ -42,7 +43,7 @@ function custom_social_links_shortcode( $atts ) {
 		    $social_icon_class = $v['id'];
 		    if ( $social_icon_class == 'gplus' ) $social_icon_class = 'googleplus';
 		    $social_link = wpcasa_get_option( 'icon_' . $i . '_link' );	
-			$output .= '<a href="' . $social_link . '" target="_blank" title="' . $v['title'] . '" class="webicon ' . $social_icon_class . '">' . $v['title'] . '</a>' . "\n";				    		
+			$output .= '<a itemprop="sameAs" href="' . $social_link . '" target="_blank" title="' . $v['title'] . '" class="webicon ' . $social_icon_class . '">' . $v['title'] . '</a>' . "\n";				    		
 			$i++;				    		
 		}				    
 	} else {
